@@ -1,0 +1,902 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title class="">Trung Tâm Liên Minh Huyền Thoại</title>
+    <style>
+        body {
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #00162c;
+            color: #ffffff;
+            transition: background-color 0.5s ease-in-out, color 0.5s ease-in-out;
+        }
+        
+        .user-info {
+      display: flex;
+      align-items: center;
+      background-color: #012e5e;
+      color: white;
+      padding: 12px 20px;
+      border-radius: 12px;
+      width: fit-content;
+      font-size: 18px;
+      gap: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.582);
+    }
+
+    .user-icon {
+      width: 40px;
+      height: 40px;
+      background-color: white;
+      color: #012e5e;
+      font-weight: bold;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+    }
+    
+        header {
+            background-color: #012e5e;
+            padding: 20px;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+            transition: background-color 0.3s ease;
+        }
+
+        header h1 {
+            font-size: 3.5em;
+            color: #f0e130;
+            text-shadow: 0 0 10px rgb(148, 161, 29), 0 0 20px rgb(148, 161, 29);
+            letter-spacing: 2px;
+            margin: 0;
+
+        }
+
+        nav {
+            display: flex;
+            justify-content: center;
+            top: 0;
+            left: 0;
+            width: 100%;
+            align-items: center;
+            margin-top: 15px;
+            box-sizing: border-box;
+            z-index: 100;
+            transition: top 0.3s ease;
+            /* Hiệu ứng mượt mà khi ẩn hiện */
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #fff;
+            margin: 0 20px;
+            font-weight: bold;
+            font-size: 1.2em;
+            text-transform: uppercase;
+            transition: color 0.3s ease;
+        }
+
+        nav a.active {
+            color: #f0e130;
+            /* Màu vàng của Liên Minh Huyền Thoại */
+        }
+
+        nav a:hover {
+            color: #f0e130;
+        }
+
+        .hero {
+            text-align: center;
+            padding: 90px 20px;
+            background: url('https://images.contentstack.io/v3/assets/blt370612131b6e0756/blt4b9c034f9b5824ed/5e15d7233c326d10d2194d05/LoL_SplashPage.jpg') no-repeat center center/cover;
+            background-size: cover;
+            color: white;
+            position: relative;
+            
+        }
+
+        .hero h2 {
+            font-size: 3em;
+            text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.7);
+        }
+
+        .container {
+            padding: 20px;
+
+        }
+
+        .section {
+            margin-bottom: 50px;
+            position: relative;
+            padding-top: 140px;
+        }
+
+        .section h3 {
+            font-size: 3.0em;
+            color: #f0e130;
+            display: inline-block;
+            margin-bottom: 20px;
+        }
+
+        .section h4 {
+            font-size: 3.0em;
+            color: #f0e130;
+            display: inline-block;
+            margin-bottom: 20px;
+        }
+        .card {
+            background-color: #012e5e8a;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 10px 0;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+            display: flex;
+            align-items: center;
+            transition: transform 0.2s ease-in-out;
+        }
+
+        .card:hover {
+            transform: scale(1.013, 1.013);
+        }
+
+        .card img {
+            max-width: 150px;
+            border-radius: 10px;
+            margin-right: 20px;
+        }
+
+        .new-section {
+            background-color: #012e5e8a;
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 20px;
+        }
+
+
+        .new-section h4 {
+            font-size: 1.8em;
+            color: #f0e130;
+            margin-bottom: 10px;
+        }
+
+        
+        footer {
+            background-color: #012e5e;
+            padding: 20px;
+            text-align: center;
+            position: relative;
+            bottom: 0;
+            margin-top: 50px;
+            transition: color 0.3s ease;
+
+        }
+
+        footer p {
+            color: #b0b0b0;
+            margin: 0;
+            transition: color 0.3s ease;
+        }
+
+        footer a {
+            color: #fff;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        footer .social-icons {
+            margin-top: 10px;
+
+        }
+
+        footer .social-icons a {
+            color: #fff;
+            margin: 0 15px;
+            font-size: 1.5em;
+            display: inline-flex;
+            align-items: center;
+        }
+
+        footer .social-icons a img {
+            width: 20px;
+            height: 20px;
+            margin-right: 8px;
+        }
+
+        footer .social-icons a:hover {
+            color: #f0e130;
+        }
+
+        /* Scroll Animations */
+        .fade-up {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.5s ease, transform 0.5s ease;
+        }
+
+        .fade-up.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        @media (min-width: 768px) {
+            .card {
+                display: flex;
+                align-items: center;
+            }
+
+            .card img {
+                max-width: 190px;
+            }
+        }
+
+        .line {
+            border: 0;
+            border-top: 4px solid #f0e130;
+            /* Màu sắc và độ dày của đường line */
+            margin: 10px 0;
+            /* Khoảng cách trên và dưới đường line */
+        }
+
+        /* Kiểu dáng nút mũi tên */
+        .scroll-to-top {
+            position: fixed;
+            bottom: 30px;
+            /* Khoảng cách từ dưới chân trang */
+            right: 30px;
+            /* Khoảng cách từ cạnh phải */
+            background-color: #f0e03050;
+            color: #fff;
+            border-radius: 50%;
+            width: 60px;
+            /* Độ rộng của ô tròn */
+            height: 60px;
+            /* Độ cao của ô tròn */
+            display: none;
+            /* Ban đầu ẩn nút */
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+            cursor: pointer;
+            transition: opacity 0.4s ease-out, transform 0.4s ease-out;
+            display: flex;
+            align-items: center;
+            /* Căn giữa theo chiều dọc */
+            justify-content: center;
+            /* Căn giữa theo chiều ngang */
+            font-size: 2em;
+
+        }
+
+        /* Hiệu ứng hover */
+        .scroll-to-top:hover {
+            background-color: #ffcc00a6;
+
+        }
+        .news-grid {
+                display: grid;
+                grid-template-columns: repeat(3, 1fr);
+                /* 3 cột */
+                gap: 20px;
+                margin-top: 20px;
+            }
+
+            .news-item {
+                background-color: #012e5e8a;
+                border-radius: 8px;
+                overflow: hidden;
+                position: relative;
+                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
+                transition: transform 0.2s ease;
+            }
+
+            .news-item:hover {
+                transform: scale(1.04);
+            }
+
+            .news-item img {
+                width: 100%;
+                height: 280px;
+                object-fit: cover;
+                border-bottom: 2px solid #f0e130;
+            }
+
+            .news-text {
+                padding: 15px;
+                color: #fff;
+                font-size: 14px;
+            }
+
+            .news-text p {
+                overflow: hidden;
+                text-overflow: ellipsis;
+                white-space: nowrap;
+            }
+
+            .news-text:hover p {
+                white-space: normal;
+                text-overflow: clip;
+            }
+
+            .more {
+                display: none;
+                color: #f0e130;
+                font-weight: bold;
+                cursor: pointer;
+            }
+
+            .news-item:hover .more {
+                display: block;
+            }
+
+            .news-text .more:hover {
+                text-decoration: underline;
+            }
+        
+            .light-mode {
+            background-color: #ffffff;
+            color: #000000;
+        }
+
+        .card, .header, footer {
+            transition: background-color 0.5s ease-in-out, box-shadow 0.5s ease-in-out;
+        }
+
+        .light-mode .card {
+            background-color: #cce7ff;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .light-mode .header, .light-mode footer {
+            background-color: #2a75bb;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+        }
+        .light-mode .user-info {
+            background-color: #2a75bb;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+        }
+        .toggle-button {
+            position: fixed;
+            top: 28px;
+            right: 20px;
+            background-color: #f0e130;
+            border: none;
+            padding: 12px 20px;
+            cursor: pointer;
+            font-size: 16px;
+            border-radius: 5px;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+        
+        .toggle-button_DangKy {
+            position: fixed;
+            top: 78px;
+            right: 20px;
+            background-color: #f0e130;
+            border: none;
+            padding: 12px 20px;
+            cursor: pointer;
+            font-size: 16px;
+            border-radius: 5px;
+            transition: background-color 0.3s, transform 0.3s;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.582);
+
+        }
+
+        .toggle-button:hover {
+            background-color: #d1c02f;
+            transform: scale(1.1);
+        }
+        .toggle-button_DangKy:hover {
+            background-color: #d1c02f;
+            transform: scale(1.1);
+        }
+      /*position: fixed; /* Để nút luôn nằm cố định ở dưới 
+      bottom: 26.5px;
+      left: 350px;*/
+        
+    .logout-footer-btn {
+      position: fixed; /* Để nút luôn nằm cố định ở dưới */
+      top: 24px;
+      left: 20px;
+      padding: 12px 20px;
+      background-color: #a31818;
+      color: white;
+      font-size: 18px;
+      border: none;
+      border-radius: 15px;
+      cursor: pointer;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.582);
+      transition: background-color 0.3s, transform 0.3s;
+
+    }
+    
+    .logout-footer-btn:hover {
+    background-color: #e63946;
+    transform: scale(1.1);
+
+    }
+    </style>
+</head>
+
+<body class="bg-dark">
+    <header>
+        
+        <h1>Trung Tâm Liên Minh Huyền Thoại</h1> 
+        <button id="toggle-theme" class="toggle-button">🌙 Chế Độ Tối</button>
+        <button id="toggle-theme" class="toggle-button_DangKy" onclick="chuyenTrang()">🖊️ Đăng Ký</button>
+        <button id="logoutFooterBtn" class="logout-footer-btn">Đăng xuất</button> <!-- Nút đăng xuất trong footer -->
+
+    
+        <nav>
+            <a href="#champions" id="champions-link">Tướng</a>
+            <a href="#news" id="news-link">Tin Tức</a>
+            <a style="font-size: 25px" href="https://www.leagueoflegends.com/vi-vn/" target="_blank"
+                id="official-link">Trang Chính Thức</a>
+            <a href="#guides" id="guides-link">Hướng Dẫn</a>
+            <a href="download.html" id="download-link">Tải
+                Game</a>
+        </nav>
+    </header>
+
+    
+
+    <div class="hero">
+        <h2>Khám Phá Thế Giới Liên Minh Huyền Thoại</h2>
+        <p>Tìm hiểu về các tướng, cập nhật tin tức mới nhất và trở thành bậc thầy Đấu Trường Công Lý!</p>
+        
+
+    </div>
+    <hr class="line">
+
+    
+
+    <div class="container">
+        <section id="champions" class="section fade-up">
+            <h3 style="text-shadow: 3px 3px 8px rgb(148, 161, 29);">Các Tướng Nổi Bật</h3>
+            <div class="card">
+                <img src="https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Ahri_0.jpg" alt="Ahri">
+
+                <div>
+                    <strong style="font-size: 20px;">Ahri</strong>
+                    <p>Cửu Vĩ Hồ</p>
+
+                </div>
+            </div>
+
+            <div class="card">
+                <img src="https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Zed_0.jpg" alt="Zed">
+
+                <div>
+                    <strong style="font-size: 20px;">Zed</strong>
+                    <p>Bóng Tối Sát Thủ</p>
+
+                </div>
+            </div>
+
+            <div class="card">
+                <img src="https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Yasuo_0.jpg" alt="Yasuo">
+                <div>
+                    <strong style="font-size: 20px;">Yasuo</strong>
+                    <p>Thợ Săn Bất Tử</p>
+                </div>
+            </div>
+            <div class="card">
+                <img src="https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Garen_0.jpg" alt="Garen">
+                <div>
+                    <strong style="font-size: 20px;">Garen</strong>
+                    <p>Cuồng Sĩ Demacia</p>
+                </div>
+            </div>
+            <div class="card">
+                <img src="https://ddragon.leagueoflegends.com/cdn/img/champion/splash/LeeSin_0.jpg" alt="Lee Sin">
+                <div>
+                    <strong style="font-size: 20px;">Lee Sin</strong>
+                    <p>Thầy Tu Mù</p>
+                </div>
+            </div>
+            <div class="card">
+                <img src="https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Aatrox_0.jpg" alt="Aatrox">
+                <div>
+                    <strong style="font-size: 20px;">Aatrox</strong>
+                    <p>Đao Phủ Hủy Diệt</p>
+                </div>
+            </div>
+        </section>
+
+
+        <section id="news" class="section fade-up">
+            <hr class="line">
+            <h3 style="text-shadow: 3px 3px 8px rgb(148, 161, 29);">Tin Tức Mới Nhất</h3>
+            <div class="news">
+
+                <!-- Chia thành lưới 3 cột mỗi dòng -->
+                <div class="news-grid">
+                    <div class="news-item">
+                        <img src="https://i.ytimg.com/vi/h9zmlhUqXfc/maxresdefault.jpg"
+                            alt="Tristana Lính Cứu Hỏa">
+                        <div class="news-text">
+                            <strong style="font-size: 20px; ">Hỗ Trợ Cứu Trợ Cháy Rừng Ở LA </strong>
+                            <p>Từ 23/01 - 05/02, toàn bộ doanh thu của Riot từ trang phục Tristana Lính Cứu Hỏa cùng một
+                                khoản x3 số tiền này sẽ được gửi tới Quỹ Tác Động Xã Hội của Riot Games.</p>
+                            <a style="color:#f0e130" href="tristana.html"
+                                >Xem thêm...</a>
+
+                        </div>
+                    </div>
+
+                    <div class="news-item">
+                        <img src="https://cmsassets.rgpub.io/sanity/images/dsfx7636/news/77473d6193134b3cbdd98315da69d3435b5e9387-1920x1080.png?auto=format&fit=fill&q=80&w=480"
+                            alt="Đăng Ký Twitch Esports LMHT">
+                        <div class="news-text">
+                            <strong style="font-size: 20px; ">GIỚI THIỆU GIẢI ĐẤU ROAD TO VCS 2025</strong>
+
+                            <p>Giới Thiệu Giải Đấu Road to VCS 2025: Giải đấu Road to VCS 2025 mở đăng ký từ ngày 20/01,
+                                mở ra chương mới cho cộng đồng eSports Việt Nam.</p>
+
+                            <a style="color:#f0e130" href="vcs.html"
+                                >Xem thêm...</a>
+
+                        </div>
+                    </div>
+
+                    <div class="news-item">
+                        <img src="https://cmsassets.rgpub.io/sanity/images/dsfx7636/news/0f8d7762063bbe828c0c8b7a2de8aba72c51ff55-1600x900.jpg?auto=format&fit=fill&q=80&w=480"
+                            alt="Giới Thiệu Giải Đấu Road to VCS 2025">
+                        <div class="news-text">
+                            <strong style="font-size: 20px; ">Đăng Ký Twitch Esports LMHT</strong>
+                            <p>Cung cấp thêm nhiều cách để tương tác và hỗ trợ các chương trình phát sóng Esports LMHT
+                                khu vực</p>
+                            <a style="color:#f0e130"
+                                href="twitch-esports.html"
+                                >Xem thêm...</a>
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="news-grid">
+                    <div class="news-item">
+                        <img src="https://cmsassets.rgpub.io/sanity/images/dsfx7636/news/feca5788b2feef238c58de849adc01a43b7a92ea-1920x1080.jpg?auto=format&fit=fill&q=80&w=480"
+                            alt="Streamer Đồng Phát Sóng Trực Tuyến Khởi Động Mùa Giải LCP 20255">
+                        <div class="news-text">
+                            <strong style="font-size: 20px; ">Streamer Đồng Phát Sóng Trực Tuyến Khởi Động Mùa Giải LCP
+                                2025</strong>
+                            <p>Công bố danh sách streamer đồng phát sóng trực tuyến chính thức cho giai đoạn Khởi Động
+                                Mùa Giải.</p>
+                            <a style="color:#f0e130" href="streamer.html"
+                                >Xem thêm...</a>
+
+                        </div>
+                    </div>
+
+                    <div class="news-item">
+                        <img src="https://cmsassets.rgpub.io/sanity/images/dsfx7636/news/0a60f6c2b06ee2ffe8f178b05f0ae2754affb867-1920x1080.png?auto=format&fit=fill&q=80&w=480"
+                            alt="Lộ Trình Thi Đấu Vietnam Championship Series 2025">
+                        <div class="news-text">
+                            <strong style="font-size: 20px; ">LỘ TRÌNH THI ĐẤU VIETNAM CHAMPIONSHIP SERIES 2025
+                            </strong>
+                            <p>Vietnam Championship Series 2025 công bố lộ trình thi đấu, mở rộng cơ hội cho cộng đồng
+                                game thủ Việt</p>
+                            <a style="color:#f0e130"
+                                href="VNchampion.html"
+                                >Xem thêm...</a>
+
+                        </div>
+                    </div>
+
+                    <div class="news-item">
+                        <img src="https://cmsassets.rgpub.io/sanity/images/dsfx7636/news/32e1bf2da4a51db7a6ad7cdbc52b8b2a718014f6-1920x1080.jpg?auto=format&fit=fill&q=80&w=480"
+                            alt="Trailer Ra Mắt Sett Cự Xà Quyền Thánh">
+                        <div class="news-text">
+                            <strong style="font-size: 20px; ">Trailer Ra Mắt Sett Cự Xà Quyền Thánh</strong>
+                            <p>Anh hùng quê nhà đã xuất hiện. Chiến đấu hết mình cùng Sett Cự Xà Quyền Thánh ngay hôm
+                                nay!</p>
+                            <a style="color:#f0e130"
+                                href="sett.html"
+                                >Xem thêm...</a>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="guides" class="section fade-up">
+            <hr class="line">
+            <h3 style="text-shadow: 3px 3px 8px rgb(148, 161, 29);">Hướng Dẫn Chơi Liên Minh Huyền Thoại</h3>
+
+            <div class="card">
+                <img src="https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Ahri_0.jpg" alt="Hướng Dẫn Ahri">
+                <div>
+                    <h4 style="font-size: 20px;">Hướng Dẫn Chơi Ahri</h4>
+                    <p>Ahri là một pháp sư mạnh mẽ với khả năng gây sát thương phép lớn và cơ động cao. Cùng tìm hiểu
+                        cách chơi Ahri hiệu quả nhất!</p>
+                    <a href="ahri_guide.html"
+                        style="color:#f0e130">Xem thêm...</a>
+                </div>
+            </div>
+
+            <div class="card">
+                <img src="https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Yasuo_0.jpg"
+                    alt="Hướng Dẫn Yasuo">
+                <div>
+                    <h4 style="font-size: 20px;">Hướng Dẫn Chơi Yasuo</h4>
+                    <p>Yasuo là một tướng có khả năng di chuyển linh hoạt và gây sát thương mạnh mẽ. Cùng khám phá cách
+                        chơi Yasuo và trở thành bậc thầy gió!</p>
+                    <a href="https://www.youtube.com/watch?v=miAkKsbAlaM" target="_blank"
+                        style="color:#f0e130">Xem thêm...</a>
+                </div>
+            </div>
+
+            <div class="card">
+                <img src="https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Garen_0.jpg"
+                    alt="Hướng Dẫn Garen">
+                <div>
+                    <h4 style="font-size: 20px;">Hướng Dẫn Chơi Garen</h4>
+                    <p>Garen là một đấu sĩ mạnh mẽ trong Liên Minh Huyền Thoại với khả năng chống chịu cao và gây sát
+                        thương diện rộng. Tìm hiểu cách chơi Garen hiệu quả trong mọi trận đấu!</p>
+                    <a href="https://www.youtube.com/watch?v=ijBOgwQTN0o" target="_blank"
+                        style="color:#f0e130">Xem thêm...</a>
+                </div>
+            </div>
+
+            <div class="card">
+                <img src="https://ddragon.leagueoflegends.com/cdn/img/champion/splash/LeeSin_0.jpg"
+                    alt="Hướng Dẫn Lee Sin">
+                <div>
+                    <h4 style="font-size: 20px;">Hướng Dẫn Chơi Lee Sin</h4>
+                    <p>Lee Sin là một tướng có độ cơ động cao và khả năng kiểm soát trận đấu mạnh mẽ. Tìm hiểu cách sử
+                        dụng Lee Sin để trở thành bậc thầy chiến thuật</p>
+                    <a href="https://youtu.be/Ev6H7cHt440" target="_blank"
+                        style="color:#f0e130">Xem thêm...</a>
+                </div>
+            </div>
+
+            <div class="card">
+                <img src="https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Aatrox_0.jpg"
+                    alt="Hướng Dẫn Aatrox">
+                <div>
+                    <h4 style="font-size: 20px;">Hướng Dẫn Chơi Aatrox</h4>
+                    <p>Aatrox là một tướng sát thương vật lý mạnh mẽ với khả năng hồi phục tuyệt vời. Khám phá cách chơi
+                        Aatrox và chiếm lĩnh chiến trường với sức mạnh không thể ngừng nghỉ!</p>
+                    <a href="https://youtu.be/NlS5BY9ub9w" target="_blank"
+                        style="color:#f0e130">Xem thêm...</a>
+                </div>
+            </div>
+            </section>
+        </section>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 Trung Tâm Liên Minh Huyền Thoại. Mọi quyền được bảo lưu.</p>
+        <div class="social-icons">
+            <a href="https://facebook.com" target="_blank">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg"
+                    alt="Facebook"><strong>Facebook</strong>
+            </a>
+            <a href="https://instagram.com" target="_blank">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png"
+                    alt="Instagram"><strong>Instagram</strong>
+            </a>
+            <a href="https://mail.google.com/mail" target="_blank">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/7/7e/Gmail_icon_%282020%29.svg"
+                    alt="Gmail"><strong>Gmail</strong>
+            </a>
+            <a href="#" class="scroll-to-top" id="scrollToTopBtn">
+                ↑
+            </a>
+            <div class="user-info">
+                <div class="user-icon">👤</div>
+                <div id="emailHienThi">Chưa đăng nhập</div>
+            </div>
+        </div>
+        </div>
+        
+    </footer>
+
+    </footer>
+
+
+
+    <script>
+        
+    // Lấy email từ localStorage và hiển thị
+const email = localStorage.getItem("emailDangKy");
+const emailDisplay = document.getElementById("emailHienThi");
+
+if (email) {
+  emailDisplay.textContent = ` ${email}`; // Hiển thị email nếu người dùng đã đăng nhập
+}
+
+// Hàm chuyển trang khi nhấn nút
+function chuyenTrang() {
+  window.location.href = "dangky.html"; // Thay bằng đường dẫn
+}
+
+// Xử lý nút đăng xuất chỉ ở footer
+function dangXuat() {
+  localStorage.removeItem("emailDangKy"); // Xoá email khỏi localStorage
+  emailDisplay.textContent = "Chưa đăng nhập"; // Cập nhật lại nội dung thành "Chưa đăng nhập"
+  document.getElementById("logoutFooterBtn").style.display = "none"; // Ẩn nút đăng xuất sau khi đã đăng xuất
+}
+
+// Thêm sự kiện cho nút đăng xuất trong footer
+document.getElementById("logoutFooterBtn")?.addEventListener("click", dangXuat);
+        document.addEventListener("DOMContentLoaded", function () {
+        const themeButton = document.getElementById("toggle-theme");
+        const body = document.body;
+        const header = document.querySelector("header");
+        const footer = document.querySelector("footer");
+        const cards = document.querySelectorAll(".card, .news-item, .new-section");
+
+        function updateTheme(isLightMode) {
+            if (isLightMode) {
+                body.style.backgroundColor = "#045ebe";
+                header.style.backgroundColor = "#377dcf";
+                footer.style.backgroundColor = "#377dcf";
+                cards.forEach(card => {
+                    card.style.borderColor = "#377dcf";
+                });
+                themeButton.innerHTML = "🌙 Chế Độ Tối";
+                localStorage.setItem("theme", "light");
+            } else {
+                body.style.backgroundColor = "#00162c";
+                header.style.backgroundColor = "#012e5e";
+                footer.style.backgroundColor = "#012e5e";
+                cards.forEach(card => {
+                    card.style.borderColor = "#012e5e";
+                });
+                themeButton.innerHTML = "🌞 Chế Độ Sáng";
+                localStorage.setItem("theme", "dark");
+            }
+        }
+
+        // Kiểm tra trạng thái đã lưu và cập nhật giao diện
+        const savedTheme = localStorage.getItem("theme") === "light";
+        updateTheme(savedTheme);
+
+        themeButton.addEventListener("click", function () {
+            const isLightMode = body.style.backgroundColor !== "rgb(4, 94, 190)";
+            updateTheme(isLightMode);
+        });
+    });
+
+        // Lấy nút di chuyển lên đầu trang
+        var scrollToTopBtn = document.getElementById("scrollToTopBtn");
+
+        // Đặt một biến để kiểm soát khi nào cần thay đổi trạng thái của nút
+        var isButtonVisible = false;
+
+        // Hàm xử lý cuộn trang
+        function handleScroll() {
+            var scrollPosition = document.documentElement.scrollTop || document.body.scrollTop;
+            var pageHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+
+            // Kiểm tra nếu cuộn xuống dưới 2/3 trang thì nút sẽ luôn hiển thị
+            if (scrollPosition > pageHeight * 2 / 3) {
+                if (!isButtonVisible) {
+                    isButtonVisible = true;  // Đánh dấu nút đã hiện
+                    scrollToTopBtn.style.display = "flex";  // Hiển thị nút
+                    setTimeout(function () {
+                        scrollToTopBtn.style.opacity = 1;  // Hiệu ứng mờ dần
+                        scrollToTopBtn.style.transform = "translateY(0)";  // Hiệu ứng di chuyển lên
+                    }, 100);  // Delay để tạo hiệu ứng
+                }
+            } else if (scrollPosition <= pageHeight / 3) { // Khi cuộn lên trên 1/3 trang, ẩn nút
+                if (isButtonVisible) {
+                    isButtonVisible = false;  // Đánh dấu nút đã ẩn
+                    scrollToTopBtn.style.opacity = 0;   // Mờ dần khi cuộn lên
+                    scrollToTopBtn.style.transform = "translateY(50px)";  // Đưa nút xuống dưới
+                    setTimeout(function () {
+                        scrollToTopBtn.style.display = "none";  // Ẩn nút khi cuộn lên
+                    }, 400);  // Đợi cho đến khi hiệu ứng mờ hoàn tất
+                }
+            } else {
+                if (!isButtonVisible) {
+                    isButtonVisible = true;  // Đánh dấu nút đã hiện
+                    scrollToTopBtn.style.display = "flex";  // Hiển thị nút
+                    setTimeout(function () {
+                        scrollToTopBtn.style.opacity = 1;  // Hiệu ứng mờ dần
+                        scrollToTopBtn.style.transform = "translateY(0)";  // Hiệu ứng di chuyển lên
+                    }, 100);  // Delay để tạo hiệu ứng
+                }
+            }
+        }
+
+        // Gọi ngay khi tải trang để kiểm tra vị trí cuộn ban đầu
+        window.addEventListener("load", function () {
+            handleScroll();  // Kiểm tra ngay khi trang tải xong
+        });
+
+        // Sử dụng sự kiện scroll với debounce
+        let scrollTimeout;
+        window.addEventListener("scroll", function () {
+            // Nếu đang cuộn, đặt timeout để trì hoãn việc xử lý
+            clearTimeout(scrollTimeout);
+            scrollTimeout = setTimeout(handleScroll, 50); // Đặt thời gian trì hoãn 50ms
+        });
+
+        // Khi người dùng nhấp vào nút, cuộn trang lên đầu
+        scrollToTopBtn.onclick = function (e) {
+            e.preventDefault();  // Ngăn chặn hành động mặc định của thẻ <a>
+            window.scrollTo({
+                top: 0,
+                behavior: "smooth"  // Hiệu ứng cuộn mượt
+            });
+        };
+
+
+
+        // Animation on scroll
+        document.addEventListener('scroll', () => {
+            const elements = document.querySelectorAll('.fade-up');
+            elements.forEach(element => {
+                if (element.getBoundingClientRect().top < window.innerHeight) {
+                    element.classList.add('visible');
+                }
+            });
+        });
+        let lastScrollTop = 0; // Biến lưu vị trí cuộn trang trước đó
+        const nav = document.querySelector('nav'); // Lấy phần tử thanh điều hướng
+
+        // Lắng nghe sự kiện scroll (cuộn trang)
+        window.addEventListener('scroll', () => {
+            let currentScroll = window.pageYOffset || document.documentElement.scrollTop;
+
+            // Kiểm tra nếu cuộn xuống
+            if (currentScroll > lastScrollTop) {
+                nav.style.top = "-60px"; // Ẩn thanh điều hướng (60px là chiều cao của navbar, có thể thay đổi theo ý)
+            } else {
+                nav.style.top = "0"; // Hiện thanh điều hướng
+            }
+
+            // Cập nhật vị trí cuộn trang mới
+            lastScrollTop = currentScroll <= 0 ? 0 : currentScroll; // Đảm bảo không bị âm
+        });
+        // Scroll and highlight active link
+        const links = document.querySelectorAll('nav a');
+        const sections = document.querySelectorAll('.section');
+        const officialLink = document.getElementById('official-link');
+
+        window.addEventListener('scroll', () => {
+            let currentSection = "";
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                if (window.scrollY >= sectionTop - 100) {
+                    currentSection = section.getAttribute('id');
+                }
+            });
+
+            links.forEach(link => {
+                link.classList.remove('active');
+                if (currentSection === link.getAttribute('href').slice(1)) {
+                    link.classList.add('active');
+                }
+            });
+        });
+
+        // Keep "Trang Chính Thức" always glowing
+        officialLink.addEventListener('mouseover', () => {
+            officialLink.style.color = "#f0e130";
+            officialLink.style.textShadow = "0 0 15px #f0e130";
+        });
+
+        officialLink.addEventListener('mouseleave', () => {
+            officialLink.style.color = "#fff";
+            officialLink.style.textShadow = "none";
+        });
+
+        
+    </script>
+
+
+</body>
+
+</html>

@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tải Game</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: url('https://th.bing.com/th/id/R.bf370dce55ed8bd63252e24b0bb96a1d?rik=5vYStYGjF7CY%2fw&pid=ImgRaw&r=0') no-repeat center center fixed;
+            background-size: cover;
+            color: white;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+        body::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.4);
+            z-index: 0;
+        }
+        header, main, footer {
+            position: relative;
+            z-index: 1;
+        }
+        header {
+            background: rgba(0, 0, 0, 0.8);
+            padding: 20px;
+            font-size: 24px;
+            font-weight: bold;
+            position: relative;
+        }
+        h1, h2 {
+            color: #eece00;
+            text-shadow: 0 0 10px rgb(148, 161, 29), 0 0 20px rgb(148, 161, 29);
+        }
+        .download {
+            margin-top: 50px;
+            flex: 1;
+        }
+        .buttons {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+        .btn {
+            background: #ff9800;
+            color: white;
+            padding: 20px 40px;
+            text-decoration: none;
+            border-radius: 10px;
+            font-size: 22px;
+            transition: 0.3s;
+            font-weight: bold;
+        }
+        .btn:hover {
+            background: #e68900;
+        }
+        .back-btn {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background: #008CBA;
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 18px;
+            transition: 0.3s;
+            font-weight: bold;
+        }
+        .back-btn:hover {
+            background: #0073a1;
+        }
+        footer {
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.8);
+            font-size: 18px;
+            font-weight: bold;
+            text-align: center;
+            margin-top: auto;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <a href="index.html" class="back-btn">⬅ Trang Chủ</a>
+        <h1>Trang Tải Game</h1>
+    </header>
+    <main>
+        <section class="download">
+            <h2>Tải Xuống Ngay</h2>
+            <p>Chọn nền tảng của bạn để tải game:</p>
+            <div class="buttons">
+                <a href="https://drive.google.com/file/d/1IGvEssztmdQPiSZ0mi9AfIUZRnobpzVG/view?usp=sharing" class="btn" download>Tải cho Windows</a>
+                <a href="https://drive.google.com/file/d/1IGvEssztmdQPiSZ0mi9AfIUZRnobpzVG/view?usp=sharing" class="btn" download>Tải cho Mac</a>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2025 Trang Tải Game. Mọi quyền được bảo lưu.</p>
+    </footer>
+</body>
+</html>

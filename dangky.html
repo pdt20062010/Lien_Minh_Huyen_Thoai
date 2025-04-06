@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <title>Đăng ký nhận tin LMHT</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: url('https://th.bing.com/th/id/R.bf370dce55ed8bd63252e24b0bb96a1d?rik=5vYStYGjF7CY%2fw&pid=ImgRaw&r=0') no-repeat center center fixed;
+      background-size: cover;
+      position: relative;
+      margin: 0;
+    }
+
+    /* Lớp phủ tối giúp chữ nổi bật hơn */
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.6); /* Điều chỉnh độ tối tại đây */
+      z-index: -1;
+    }
+
+    .back-btn {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      background: #008CBA;
+      color: white;
+      padding: 10px 20px;
+      text-decoration: none;
+      border-radius: 5px;
+      font-size: 18px;
+      transition: 0.3s;
+      font-weight: bold;
+    }
+    .back-btn:hover {
+        background: #0073a1
+    }
+    .form-box {
+      background-color: rgba(0, 51, 105, 0.8);
+      padding: 30px;
+      border-radius: 12px;
+      display: inline-block;
+      margin-bottom: 30px;
+    }
+
+    .info-box {
+      background-color: rgba(0, 51, 105, 0.8);
+      padding: 35px;
+      border-radius: 12px;
+      width: 90%;
+      max-width: 800px;
+      margin: 0 auto;
+      font-size: 20px;
+      line-height: 1.8;
+    }
+
+    .info-box h3 {
+      font-size: 28px;
+      margin-bottom: 20px;
+    }
+
+    input[type="email"] {
+      padding: 12px;
+      width: 280px;
+      font-size: 16px;
+      border: none;
+      border-radius: 8px;
+      margin-bottom: 15px;
+    }
+
+    button {
+      padding: 12px 24px;
+      background-color: #ff4d4d;
+      color: white;
+      font-size: 16px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #e63946;
+    }
+
+    
+    .content {
+      text-align: center;
+      padding: 60px 20px;
+      color: white;
+    }
+  </style>
+</head>
+<body>
+
+  <a href="index.html" class="back-btn">⬅ Trang Chủ</a>
+
+  <div class="content">
+    <div class="form-box">
+      <h2 style="font-size: 30px;">🔥 Đăng ký nhận tin hot về LMHT!</h2>
+      <p style="font-size: 18px;">Nhập email để không bỏ lỡ bất kỳ thông tin nào từ Summoner's Rift 🛡️</p>
+
+      <form onsubmit="return dangKy()">
+        <input type="email" id="email" placeholder="Nhập email của bạn" required><br>
+        <button type="submit">Đăng ký ngay</button>
+      </form>
+    </div>
+
+    <div class="info-box">
+      <h3>📢 Bạn sẽ nhận được gì khi đăng ký?</h3>
+      <ul style="list-style: none; padding: 0; text-align: left;">
+        <li>✅ Tin tức cập nhật về các bản vá và sự kiện mới</li>
+        <li>✅ Mẹo chơi game từ các game thủ chuyên nghiệp</li>
+        <li>✅ Hướng dẫn leo rank, build đồ cực chuẩn</li>
+        <li>✅ Thông báo giải đấu và phần thưởng hấp dẫn</li>
+      </ul>
+      <p style="margin-top: 20px;">Đừng bỏ lỡ cơ hội trở thành <strong>Summoner đỉnh cao</strong> cùng chúng tôi nhé! 💪</p>
+    </div>
+  </div>
+
+  <script>
+    function dangKy() {
+      const email = document.getElementById("email").value;
+  
+      // Lưu email vào localStorage
+      localStorage.setItem("emailDangKy", email);
+  
+      alert("Cảm ơn bạn đã đăng ký! Chúng tôi sẽ gửi thông tin LMHT đến: " + email);
+      window.location.href = "index.html";
+      return false;
+    }
+  </script> 
+
+</body>
+</html>
