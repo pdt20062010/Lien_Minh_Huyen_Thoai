@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cài đặt - Liên Minh Huyền Thoại</title>
+    <link rel="stylesheet" href="css/setting.css">
+
+</head>
+<body>
+
+    <div class="settings-container">
+        <h1>Cài đặt Tài khoản & Giao diện</h1>
+
+        <!-- Giao diện -->
+        <div class="setting-section">
+            <h2>Giao diện</h2>
+            <label for="theme">Chọn chủ đề:</label>
+            <select id="theme">
+                <option value="dark">Tối (Dark)</option>
+                <option value="arcane">Arcane Theme</option>
+                <option value="blue-spirit">Tinh Linh Lam</option>
+            </select>
+
+            <label for="fontsize">Kích thước chữ:</label>
+            <input type="range" id="fontsize" min="12" max="30" value="16" />
+        </div>
+
+        <!-- Thông báo -->
+        <div class="setting-section">
+            <h2>Thông báo</h2>
+            <label>
+                <input type="checkbox" id="notif-news" /> Nhận thông báo tin tức mới
+            </label>
+            <label>
+                <input type="checkbox" id="notif-champs" /> Cập nhật tướng
+            </label>
+            <label>
+                <input type="checkbox" id="notif-events" /> Sự kiện đặc biệt
+            </label>
+        </div>
+
+        <!-- Tài khoản -->
+        <div class="setting-section">
+            <h2>Tài khoản</h2>
+            <label>Email:</label>
+            <div id="EmailHienThi">Chưa đăng nhập</div>
+
+            <label>Tên người dùng:</label>
+            <div id="TenHienThi">Chưa đăng nhập</div>
+        </div>
+
+        <button class="save-btn">Lưu cài đặt</button>
+    </div>
+
+</body>
+    <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
+    <script src="./js/firebase.js"></script>
+    <script src="./js/setting.js"></script>
+</html>

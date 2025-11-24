@@ -1,0 +1,107 @@
+        body {
+            font-family: Verdana, Geneva, Tahoma, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #00162c;
+            color: #ffffff;
+            transition: background-color 0.5s ease-in-out, color 0.5s ease-in-out;
+        }
+
+        header {
+            background-color: #012e5e;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+            position: relative;
+        }
+
+        header h1 {
+            font-size: 2.5em;
+            color: #f0e130;
+            text-shadow: 0 0 10px rgb(148, 161, 29);
+        }
+
+        .container {
+            padding: 20px;
+            max-width: 900px;
+            margin: auto;
+        }
+
+        .content {
+            background-color: #012e5e8a;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+            text-align: center;
+        }
+
+        .content img {
+            width: 100%;
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+
+        .content p {
+            font-size: 1.2em;
+            line-height: 1.6;
+        }
+
+        footer {
+            background-color: #012e5e;
+            padding: 20px;
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        .back-button {
+            display: block;
+            width: 200px;
+            margin: 20px auto;
+            padding: 10px;
+            text-align: center;
+            background-color: #f0e130;
+            color: #000;
+            font-size: 1.2em;
+            font-weight: bold;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .back-button:hover {
+            background-color: #d1c02f;
+        }
+
+        /* Nút chuyển chế độ sáng-tối */
+        .toggle-button {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background-color: #f0e130;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            font-size: 16px;
+            border-radius: 5px;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+
+        .toggle-button:hover {
+            background-color: #d1c02f;
+            transform: scale(1.1);
+        }
+
+        /* Chế độ sáng */
+        .light-mode {
+            background-color: #045ebe;
+            color: #ffffff;
+        }
+
+        .light-mode header, .light-mode footer {
+            background-color: #377dcf;
+        }
+
+        .light-mode .content {
+            background-color: #377dcf;
+            color: #ffffff;
+        }

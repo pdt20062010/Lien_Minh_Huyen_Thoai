@@ -1,0 +1,277 @@
+<!DOCTYPE html> 
+<html lang="vi"> 
+<head> 
+<meta charset="UTF-8"> 
+<meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+<title>Trung Tâm Liên Minh Huyền Thoại</title> 
+<link rel="stylesheet" href="css/index.css"> 
+</head> 
+<body class="bg-dark"> 
+<header> 
+<div class="user-info"> 
+<button class="user-icon" id="userMenuBtn">👤</button> 
+<div id="TenHienThi">Chưa đăng nhập</div> 
+<div id="TRANGTHAI">🔴 Không hoạt động</div> 
+</div> 
+<div id="userMenu" class="user-menu"> 
+<div class="menu-item" id="SettingItem">🛠️ Cài đặt</div> 
+<div class="menu-item" id="logoutItem">🚪 Đăng xuất</div> 
+<div class="menu-item" id="ADMIN" style="display:none;">🛡️ ADMIN</div> 
+<div class="menu-item" id="dangky" onclick="chuyenTrang()">✍️ Đăng Ký</div> 
+<div class="menu-item" id="dangnhap" onclick="chuyenTrangNhap()">🔑 Đăng Nhập</div> 
+</div> 
+<h1>Trung Tâm Liên Minh Huyền Thoại</h1> 
+<nav> 
+<a href="#champions" id="champions-link">Tướng</a> 
+<a href="#news" id="news-link">Tin Tức</a> 
+<a style="font-size: 25px" href="https://www.leagueoflegends.com/vi-vn/" target="_blank" 
+id="official-link">Trang Chính Thức</a> 
+<a href="#guides" id="guides-link">Hướng Dẫn</a> 
+<a href="download.html" id="download-link">Tải 
+Game</a> 
+</nav> 
+</header> 
+<div class="hero"> 
+<h2>Khám Phá Thế Giới Liên Minh Huyền Thoại</h2> 
+<p>Tìm hiểu về các tướng, cập nhật tin tức mới nhất và trở thành bậc thầy Đấu Trường Công Lý!</p> 
+</div> 
+<hr class="line"> 
+<div class="container"> 
+<section id="champions" class="section fade-up"> 
+<h3 style="text-shadow: 3px 3px 8px rgb(148, 161, 29);">Các Tướng Nổi Bật</h3> 
+<div class="card"> 
+<img src="https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Ahri_0.jpg" alt="Ahri"> 
+<div> 
+<strong style="font-size: 20px;">Ahri</strong> 
+<p>Cửu Vĩ Hồ</p> 
+</div> 
+</div> 
+<div class="card"> 
+<img src="https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Zed_0.jpg" alt="Zed"> 
+<div> 
+<strong style="font-size: 20px;">Zed</strong> 
+<p>Bóng Tối Sát Thủ</p> 
+</div> 
+</div> 
+<div class="card"> 
+<img src="https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Yasuo_0.jpg" alt="Yasuo"> 
+<div> 
+<strong style="font-size: 20px;">Yasuo</strong> 
+<p>Thợ Săn Bất Tử</p> 
+</div> 
+</div> 
+<div class="card"> 
+<img src="https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Garen_0.jpg" alt="Garen"> 
+<div> 
+<strong style="font-size: 20px;">Garen</strong> 
+<p>Cuồng Sĩ Demacia</p> 
+</div> 
+</div> 
+<div class="card"> 
+<img src="https://ddragon.leagueoflegends.com/cdn/img/champion/splash/LeeSin_0.jpg" alt="Lee Sin"> 
+<div> 
+<strong style="font-size: 20px;">Lee Sin</strong> 
+<p>Thầy Tu Mù</p> 
+</div> 
+</div> 
+<div class="card"> 
+<img src="https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Aatrox_0.jpg" alt="Aatrox"> 
+<div> 
+<strong style="font-size: 20px;">Aatrox</strong> 
+<p>Đao Phủ Hủy Diệt</p> 
+</div> 
+</div> 
+<a href="more1.html" class="more-link">More...</a> 
+</section> 
+<section id="news" class="section fade-up"> 
+<hr class="line"> 
+<h3 style="text-shadow: 3px 3px 8px rgb(148, 161, 29);">Tin Tức Mới Nhất</h3> 
+<div class="news"> 
+<!-- Chia thành lưới 3 cột mỗi dòng --> 
+<div class="news-grid"> 
+<div class="news-item"> 
+<a href="tristana.html"> 
+<img src="https://i.ytimg.com/vi/h9zmlhUqXfc/maxresdefault.jpg" alt="Tristana Lính Cứu Hỏa" > 
+</a> 
+<div class="news-text"> 
+<strong style="font-size: 20px ">Hỗ Trợ Cứu Trợ Cháy Rừng Ở LA </strong> 
+<p >Từ 23/01 - 05/02, toàn bộ doanh thu của Riot từ trang phục Tristana Lính Cứu Hỏa cùng một 
+khoản x3 số tiền này sẽ được gửi tới Quỹ Tác Động Xã Hội của Riot Games.</p> 
+<a style="color:#f0e130" href="tristana.html" 
+>Xem thêm...</a> 
+</div> 
+</div> 
+<div class="news-item"> 
+<a href="vcs.html"> 
+<img src="https://cmsassets.rgpub.io/sanity/images/dsfx7636/news/77473d6193134b3cbdd98315da69d3435b5e9387-1920x1080.png?auto=format&fit=fill&q=80&w=480" 
+alt="Đăng Ký Twitch Esports LMHT"> 
+</a> 
+<div class="news-text"> 
+<strong style="font-size: 20px; ">GIỚI THIỆU GIẢI ĐẤU ROAD TO VCS 2025</strong> 
+<p>Giới Thiệu Giải Đấu Road to VCS 2025: Giải đấu Road to VCS 2025 mở đăng ký từ ngày 20/01, 
+mở ra chương mới cho cộng đồng eSports Việt Nam.</p> 
+<a style="color:#f0e130" href="vcs.html" 
+>Xem thêm...</a> 
+</div> 
+</div> 
+<div class="news-item"> 
+<a href="twitch-esports.html"> 
+<img src="https://cmsassets.rgpub.io/sanity/images/dsfx7636/news/0f8d7762063bbe828c0c8b7a2de8aba72c51ff55-1600x900.jpg?auto=format&fit=fill&q=80&w=480" alt="Giới Thiệu Giải Đấu Road to VCS 2025"> 
+</a> 
+<div class="news-text"> 
+<strong style="font-size: 20px; ">Đăng Ký Twitch Esports LMHT</strong> 
+<p>Cung cấp thêm nhiều cách để tương tác và hỗ trợ các chương trình phát sóng Esports LMHT 
+khu vực</p> 
+<a style="color:#f0e130" 
+href="twitch-esports.html" 
+>Xem thêm...</a> 
+</div> 
+</div> 
+</div> 
+<div class="news-grid"> 
+<div class="news-item"> 
+<a href="streamer.html"> 
+<img src="https://cmsassets.rgpub.io/sanity/images/dsfx7636/news/feca5788b2feef238c58de849adc01a43b7a92ea-1920x1080.jpg?auto=format&fit=fill&q=80&w=480" 
+alt="Streamer Đồng Phát Sóng Trực Tuyến Khởi Động Mùa Giải LCP 20255"> 
+</a> 
+<div class="news-text"> 
+<strong style="font-size: 20px; ">Streamer Đồng Phát Sóng Trực Tuyến Khởi Động Mùa Giải LCP 
+2025</strong> 
+<p>Công bố danh sách streamer đồng phát sóng trực tuyến chính thức cho giai đoạn Khởi Động 
+Mùa Giải.</p> 
+<a style="color:#f0e130" href="streamer.html" 
+>Xem thêm...</a> 
+</div> 
+</div> 
+<div class="news-item"> 
+<a href="VNchampion.html"> 
+<img src="https://cmsassets.rgpub.io/sanity/images/dsfx7636/news/0a60f6c2b06ee2ffe8f178b05f0ae2754affb867-1920x1080.png?auto=format&fit=fill&q=80&w=480" 
+alt="Lộ Trình Thi Đấu Vietnam Championship Series 2025"> 
+</a> 
+<div class="news-text"> 
+<strong style="font-size: 20px; ">LỘ TRÌNH THI ĐẤU VIETNAM CHAMPIONSHIP SERIES 2025 
+</strong> 
+<p>Vietnam Championship Series 2025 công bố lộ trình thi đấu, mở rộng cơ hội cho cộng đồng 
+game thủ Việt</p> 
+<a style="color:#f0e130" 
+href="VNchampion.html" 
+>Xem thêm...</a> 
+</div> 
+</div> 
+<div class="news-item"> 
+<a href="sett.html"> 
+<img src="https://cmsassets.rgpub.io/sanity/images/dsfx7636/news/32e1bf2da4a51db7a6ad7cdbc52b8b2a718014f6-1920x1080.jpg?auto=format&fit=fill&q=80&w=480" 
+alt="Trailer Ra Mắt Sett Cự Xà Quyền Thánh"> 
+</a> 
+<div class="news-text"> 
+<strong style="font-size: 20px; ">Trailer Ra Mắt Sett Cự Xà Quyền Thánh</strong> 
+<p>Anh hùng quê nhà đã xuất hiện. Chiến đấu hết mình cùng Sett Cự Xà Quyền Thánh ngay hôm 
+nay!</p> 
+<a style="color:#f0e130" 
+href="sett.html" 
+>Xem thêm...</a> 
+</div> 
+</div> 
+</div> 
+</div> 
+<a href="more2.html" class="more-link">More...</a> 
+</section> 
+<section id="guides" class="section fade-up"> 
+<hr class="line"> 
+<h3 style="text-shadow: 3px 3px 8px rgb(148, 161, 29);">Hướng Dẫn Chơi Liên Minh Huyền Thoại</h3> 
+<div class="card"> 
+<a href="ahri_guide.html"> 
+<img src="https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Ahri_0.jpg" alt="Hướng Dẫn Ahri"> 
+</a> 
+<div> 
+<h4 style="font-size: 20px;">Hướng Dẫn Chơi Ahri</h4> 
+<p>Ahri là một pháp sư mạnh mẽ với khả năng gây sát thương phép lớn và cơ động cao. Cùng tìm hiểu 
+cách chơi Ahri hiệu quả nhất!</p> 
+<a href="ahri_guide.html" 
+style="color:#f0e130">Xem thêm...</a> 
+</div> 
+</div> 
+<div class="card"> 
+<a href="yasuo.html"> 
+<img src="https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Yasuo_0.jpg" 
+alt="Hướng Dẫn Yasuo"> 
+</a> 
+<div> 
+<h4 style="font-size: 20px;">Hướng Dẫn Chơi Yasuo</h4> 
+<p>Yasuo là một tướng có khả năng di chuyển linh hoạt và gây sát thương mạnh mẽ. Cùng khám phá cách 
+chơi Yasuo và trở thành bậc thầy gió!</p> 
+<a href="https://www.youtube.com/watch?v=miAkKsbAlaM" target="_blank" 
+style="color:#f0e130">Xem thêm...</a> 
+</div> 
+</div> 
+<div class="card"> 
+<a href="garen.html"> 
+<img src="https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Garen_0.jpg" 
+alt="Hướng Dẫn Garen"> 
+</a> 
+<div> 
+<h4 style="font-size: 20px;">Hướng Dẫn Chơi Garen</h4> 
+<p>Garen là một đấu sĩ mạnh mẽ trong Liên Minh Huyền Thoại với khả năng chống chịu cao và gây sát 
+thương diện rộng. Tìm hiểu cách chơi Garen hiệu quả trong mọi trận đấu!</p> 
+<a href="https://www.youtube.com/watch?v=ijBOgwQTN0o" target="_blank" 
+style="color:#f0e130">Xem thêm...</a> 
+</div> 
+</div> 
+<div class="card"> 
+<a href="leesin.html"> 
+<img src="https://ddragon.leagueoflegends.com/cdn/img/champion/splash/LeeSin_0.jpg" 
+alt="Hướng Dẫn Lee Sin"> 
+</a> 
+<div> 
+<h4 style="font-size: 20px;">Hướng Dẫn Chơi Lee Sin</h4> 
+<p>Lee Sin là một tướng có độ cơ động cao và khả năng kiểm soát trận đấu mạnh mẽ. Tìm hiểu cách sử 
+dụng Lee Sin để trở thành bậc thầy chiến thuật</p> 
+<a href="https://youtu.be/Ev6H7cHt440" target="_blank" 
+style="color:#f0e130">Xem thêm...</a> 
+</div> 
+</div> 
+<div class="card"> 
+<a href="aatrox.html"> 
+<img src="https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Aatrox_0.jpg" 
+alt="Hướng Dẫn Aatrox"> 
+</a> 
+<div> 
+<h4 style="font-size: 20px;">Hướng Dẫn Chơi Aatrox</h4> 
+<p>Aatrox là một tướng sát thương vật lý mạnh mẽ với khả năng hồi phục tuyệt vời. Khám phá cách chơi 
+Aatrox và chiếm lĩnh chiến trường với sức mạnh không thể ngừng nghỉ!</p> 
+<a href="https://youtu.be/NlS5BY9ub9w" target="_blank" 
+style="color:#f0e130">Xem thêm...</a> 
+</div> 
+</div> 
+<a href="more3.html" class="more-link">More...</a> 
+</section> 
+</section> 
+</div> 
+<footer> 
+<p>&copy; 2025 Trung Tâm Liên Minh Huyền Thoại. Mọi quyền được bảo lưu.</p> 
+<div class="social-icons"> 
+<a href="https://facebook.com" target="_blank"> 
+<img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg" 
+alt="Facebook"><strong>Facebook</strong> 
+</a> 
+<a href="https://instagram.com" target="_blank"> 
+<img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" 
+alt="Instagram"><strong>Instagram</strong> 
+</a> 
+<a href="https://mail.google.com/mail" target="_blank"> 
+<img src="https://upload.wikimedia.org/wikipedia/commons/7/7e/Gmail_icon_%282020%29.svg" 
+alt="Gmail"><strong>Gmail</strong> 
+</a> 
+<a href="#" class="scroll-to-top" id="scrollToTopBtn"> 
+↑ 
+</a> 
+</div> 
+</div> 
+</footer> 
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script> 
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script> 
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script> 
+<script src="./js/firebase.js"></script> 
+<script src="./js/index.js"></script> 
+</body> 
+</html>

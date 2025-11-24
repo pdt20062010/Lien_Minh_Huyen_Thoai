@@ -1,0 +1,167 @@
+body {
+    margin: 0;
+    font-family: "Poppins", sans-serif;
+    background-color: #0a0f1a;
+    color: #fff;
+}
+
+header {
+    background-color: #1e1e2f;
+    padding: 15px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #333;
+}
+
+header h1 {
+    font-size: 24px;
+    margin: 0;
+}
+
+nav button {
+    margin-left: 10px;
+    padding: 8px 12px;
+    background-color: #1e90ff;
+    border: none;
+    border-radius: 5px;
+    color: #fff;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+nav button:hover {
+    background-color: #1175d1;
+}
+
+.container {
+    display: flex;
+    padding: 20px;
+    gap: 20px;
+}
+
+.sidebar {
+    width: 220px;
+    background: rgba(255,255,255,0.05);
+    border-radius: 10px;
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.sidebar button {
+    background: none;
+    border: none;
+    color: #fff;
+    text-align: left;
+    padding: 8px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: 0.2s;
+    font-size: 17px;     /* 🌟 CHỮ TO HƠN */
+    font-weight: 520;    /* Đậm hơn cho dễ nhìn */
+    padding: 14px 18px;  /* Nút to hơn tí cho cân */
+}
+
+.sidebar button:hover {
+    background-color: rgba(30, 144, 255, 0.3);
+}
+/* 🌟 Nút đang được chọn (sáng hơn) */
+.sidebar button.active {
+    background: rgba(121, 121, 121, 0.432);
+    color: #fff;
+}
+
+
+.main {
+    flex: 1;
+    background: rgba(255,255,255,0.05);
+    border-radius: 10px;
+    padding: 20px;
+}
+
+h2 {
+    margin-top: 0;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 10px;
+}
+
+table th, table td {
+    padding: 10px;
+    border-bottom: 1px solid rgba(255,255,255,0.2);
+    text-align: left;
+}
+
+table th {
+    background: rgba(255,255,255,0.1);
+}
+
+.btn-action {
+    padding: 5px 10px;
+    background-color: #1e90ff;
+    border: none;
+    border-radius: 5px;
+    color: #fff;
+    cursor: pointer;
+    margin-right: 5px;
+    transition: 0.2s;
+}
+
+.btn-action:hover {
+    background-color: #1175d1;
+}
+
+.refresh-btn {
+    margin-left: 10px;
+    background: transparent;   /* 🌟 TRONG SUỐT */
+    border: none;
+    padding: 4px;
+    cursor: pointer;
+    font-size: 22px;           /* 🌟 ICON TO */
+    line-height: 1;
+    transition: 0.2s ease;
+}
+
+.refresh-btn:hover {
+    transform: rotate(40deg) scale(1.2);  /* hiệu ứng xoay + phóng */
+}
+
+.champ-input {
+    padding: 8px;
+    border-radius: 6px;
+    border: none;
+    width: 100%;
+}
+
+.champ-textarea {
+    padding: 8px;
+    border-radius: 6px;
+    border: none;
+    width: 100%;
+    resize: vertical;
+    max-height: 120px;
+    overflow-y: auto;
+}
+
+.btn-save {
+    padding: 10px 15px;
+    background: #4cc9f0;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    color: #000;
+}
+
+.btn-cancel {
+    padding: 10px 15px;
+    background: #e63946;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    color: #fff;
+}

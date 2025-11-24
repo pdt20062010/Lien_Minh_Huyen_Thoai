@@ -1,0 +1,47 @@
+<!-- champion.html -->
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Chi tiết tướng</title>
+<link rel="stylesheet" href="css/index.css">
+<style>
+    body.bg-dark { background: #061424; color: #fff; }
+    .champion-box {
+        width: 90%;
+        max-width: 900px;
+        margin: 40px auto;
+        background: rgba(1,46,94,0.55);
+        padding: 25px;
+        border-radius: 14px;
+        color: #fff;
+        box-shadow: 0 6px 10px rgba(0,0,0,0.6);
+    }
+    .champion-box img { width:100%; border-radius:12px; }
+    .champion-box h1 { color:#f0e130; margin-top:12px; }
+    .skills { display:flex; gap:12px; flex-wrap:wrap; margin-top:12px; }
+    .skill { background:rgba(255,255,255,0.06); padding:10px 12px; border-radius:8px; min-width:120px; }
+</style>
+</head>
+<body class="bg-dark">
+
+<header>
+    <h1>Chi tiết Tướng</h1>
+    <nav>
+        <a style="font-size: 18px" href="more1.html">⬅ Quay lại danh sách</a>
+    </nav>
+</header>
+
+<div class="champion-box" id="championDetail">
+    Đang tải thông tin...
+</div>
+
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
+
+<script src="./js/firebase.js"></script>
+<script src="./js/champion.js"></script>
+</body>
+</html>

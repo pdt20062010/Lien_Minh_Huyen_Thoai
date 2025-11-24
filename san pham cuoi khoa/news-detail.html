@@ -1,0 +1,145 @@
+<!-- news-detail.html -->
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Chi tiết Tin tức</title>
+<link rel="stylesheet" href="css/index.css">
+<style>
+body.bg-dark { 
+    background: #061424; 
+    color: #fff; 
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+    margin: 0; 
+    padding: 0;
+}
+
+
+
+.back-link {
+    display: inline-block;
+    margin-top: 10px;
+    color: #4cc9f0;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.news-box {
+    max-width: 800px;
+    margin: 40px auto;
+    background: rgba(1,46,94,0.65);
+    padding: 30px 25px;
+    border-radius: 16px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.7);
+    text-align: center;
+    transition: transform 0.2s ease;
+}
+
+.news-box:hover {
+    transform: translateY(-3px);
+}
+
+.news-box img {
+    width: 100%;
+    max-height: 450px;
+    object-fit: cover;
+    border-radius: 12px;
+    margin-bottom: 20px;
+}
+
+.news-box h1 {
+    font-size: 28px;
+    color: #f0e130;
+    margin-bottom: 12px;
+}
+
+.news-box .date {
+    font-size: 14px;
+    color: #ddd;
+    margin-bottom: 20px;
+}
+
+.news-box p {
+    font-size: 16px;
+    line-height: 1.7;
+    text-align: justify;
+}
+
+@media screen and (max-width: 900px) {
+    .news-box {
+        margin: 20px 15px;
+        padding: 20px 15px;
+    }
+    .news-box h1 {
+        font-size: 24px;
+    }
+    .news-box p {
+        font-size: 15px;
+    }
+}
+</style>
+
+<header>
+    <h1>Chi tiết Tin tức</h1>
+    <nav>
+        <a style="font-size: 18px"  href="more2.html">⬅ Quay lại danh sách</a>
+    </nav>
+</header>
+
+<div class="news-box" id="newsDetail">
+    Đang tải thông tin...
+</div>
+
+<!-- Firebase SDK -->
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
+<script src="./js/firebase.js"></script>
+
+<script>
+const newsDetail = document.getElementById('newsDetail');
+
+function escapeHtml(str) {
+    if (!str) return '';
+    return String(str)
+        .replaceAll('&', '&amp;')
+        .replaceAll('<', '&lt;')
+        .replaceAll('>', '&gt;')
+        .replaceAll('"', '&quot;')
+        .replaceAll("'", '&#39;');
+}
+
+async function loadNewsDetail() {
+    const params = new URLSearchParams(window.location.search);
+    const id = params.get('id');
+    if (!id) {
+        newsDetail.innerHTML = "<p>Không tìm thấy tin tức</p>";
+        return;
+    }
+
+    try {
+        const doc = await db.collection("news").doc(id).get();
+        if (!doc.exists) {
+            newsDetail.innerHTML = "<p>Tin tức không tồn tại</p>";
+            return;
+        }
+
+        const n = doc.data();
+        newsDetail.innerHTML = `
+            <img src="${n.image || 'https://via.placeholder.com/800x400?text=No+Image'}" alt="${escapeHtml(n.title)}">
+            <h1>${escapeHtml(n.title)}</h1>
+            <div class="date">Ngày đăng: ${escapeHtml(n.date || '')}</div>
+            <p>${escapeHtml(n.description || '')}</p>
+        `;
+
+    } catch (err) {
+        console.error(err);
+        newsDetail.innerHTML = "<p>Lỗi khi tải tin tức</p>";
+    }
+}
+
+loadNewsDetail();
+</script>
+</body>
+</html>

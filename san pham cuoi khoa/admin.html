@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Admin LMHT</title>
+<link rel="stylesheet" href="css/admin.css">
+</head>
+<body>
+
+<header>
+    <h1>LMHT Admin Panel</h1>
+    <nav>
+        <button id="logoutBtn">Trở về trang chủ</button>
+    </nav>
+</header>
+
+<div class="container">
+    <div class="sidebar">
+        <button data-section="champions">Quản lý Tướng</button>
+        <button data-section="news">Quản lý Tin tức</button>
+        <button data-section="users">Quản lý Người dùng</button>
+    </div>
+
+    <div class="main">
+        <div id="champions" class="section">
+            <h2>Quản lý Tướng <button class="refresh-btn" onclick="renderChampions()">🔄</button>
+</h2>    
+
+            <button class="btn-action" id="addChampionBtn" onclick="addChampion()">+ Thêm Tướng</button>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Tên tướng</th>
+                        <th>Vai trò</th>
+                        <th>Hình ảnh</th>
+                        <th>Hành động</th>
+                    </tr>
+                </thead>
+            <tbody id="championList"></tbody>
+            </table>
+        </div>
+
+        <div id="news" class="section" style="display:none">
+            <h2>Quản lý Tin tức <button class="refresh-btn" onclick="renderNews()">🔄</button></h2>    
+
+            <button class="btn-action" id="addNewsBtn" onclick="addNews()">Thêm Tin mới</button>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Tiêu đề</th>
+                        <th>Hình ảnh</th>
+                        <th>Ngày đăng</th>
+                        <th>Hành động</th>
+                    </tr>
+                </thead>
+                <tbody id="newsList"></tbody>
+            </table>
+        </div>
+
+        <div id="users" class="section" style="display:none">
+            <h2>Quản lý Người dùng <button class="refresh-btn" onclick="renderUsers()">🔄</button></h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Email</th>
+                        <th>Username</th>
+                        <th>Hoạt động</th>
+                    </tr>
+                </thead>
+                <tbody id="userList"></tbody>
+            </table>
+        </div>
+    </div>
+</div>
+</body>
+        <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
+        <script src="./js/firebase.js"></script>
+        <script src="./js/admin.js"></script>
+</html>

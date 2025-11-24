@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tin Tức Mới Nhất - Trung Tâm LMHT</title>
+  <link rel="stylesheet" href="css/index.css">
+  <style>
+    .news-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 30px;
+      padding: 30px;
+    }
+    .news-card {
+      background-color: #012e5e8a;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 6px 10px rgba(0, 0, 0, 0.6);
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.3s ease-in-out;
+    }
+    .news-card:hover {
+      transform: scale(1.02);
+    }
+    .news-card img {
+      width: 100%;
+      height: 335px;
+      object-fit: cover;
+    }
+    .news-card-content {
+      padding: 20px;
+      color: #fff;
+    }
+    .news-card-content h3 {
+      color: #f0e130;
+      font-size: 20px;
+      margin-bottom: 12px;
+    }
+    .news-card-content .desc {
+      font-size: 15px;
+      margin-bottom: 12px;
+    }
+    .news-card-content a {
+      color: #f0e130;
+      text-decoration: underline;
+      font-weight: bold;
+    }
+    @media screen and (max-width: 900px) {
+      .news-grid {
+        grid-template-columns: repeat(1, 1fr);
+      }
+    }
+    
+  </style>
+</head>
+<body class="bg-dark">
+  <header>
+    <h1>Trung Tâm Liên Minh Huyền Thoại</h1>
+    <nav>
+      <a style="font-size: 25px" href="index.html">Trang chủ</a>
+
+    </nav>
+  </header>
+
+  <div class="hero">
+    <h2>Hướng dẫn chơi</h2>
+    <p>Cập nhật thông tin nóng hổi về cách chơi Liên Minh Huyền Thoại theo thời gian thực.</p>
+  </div>
+  <hr class="line">
+
+  <div class="news-grid" id="newsGrid">
+    <!-- Các bản tin đầu tiên được hiển thị tại đây -->
+  </div>
+</body>
+
+  <footer>
+    <p>&copy; 2025 Trung Tâm Liên Minh Huyền Thoại. Mọi quyền được bảo lưu.</p>
+    <div class="social-icons">
+      <a href="https://facebook.com" target="_blank">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg" alt="Facebook">
+        <strong>Facebook</strong>
+      </a>
+      <a href="https://instagram.com" target="_blank">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/a/a5/Instagram_icon.png" alt="Instagram">
+        <strong>Instagram</strong>
+      </a>
+      <a href="https://mail.google.com/mail" target="_blank">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/7/7e/Gmail_icon_%282020%29.svg" alt="Gmail">
+        <strong>Gmail</strong>
+      </a>
+      <a class="scroll-to-top" id="scrollToTopBtn">↑</a>
+    </div>
+  </footer>
+
+  <script>
+    const newsList = [
+      {
+    title: "Patch 25.14 (15/07/2025)",
+    img: "https://images.contentstack.io/v3/assets/blt731acb42bb3d1659/bltfe3ff1dd8e65b91d/668fd37ee97e4e012e2cb5f0/LOL_Patch_Notes_Header_25_14.jpg",
+    desc: "Yunara ra mắt, Kled làm lại, cân bằng meta và hệ thống mới.",
+    link: "https://www.leagueoflegends.com/vi-vn/news/game-updates/patch-25-14-notes/"
+  },
+  {
+    title: "Patch 25.13 (24/06/2025)",
+    img: "https://images.contentstack.io/v3/assets/blt731acb42bb3d1659/bltf2c12ff2076fc1e1/66800e9298990e7d6525c3a4/LOL_Patch_Notes_Header_25_13.jpg",
+    desc: "U Minh Biên Cảnh, Võ Đài trở lại và Battle Pass cải tiến.",
+    link: "https://www.leagueoflegends.com/vi-vn/news/game-updates/patch-25-13-notes/"
+  },
+  {
+    title: "Patch 25.12 (10/06/2025)",
+    img: "https://images.contentstack.io/v3/assets/blt731acb42bb3d1659/bltf883f0d71d16d1e8/6670519cd6834139cc83f9a2/LOL_Patch_Notes_Header_25_12.jpg",
+    desc: "Chào đón Uzi, điều chỉnh Vi, Yorick, Varus, hệ thống hòm.",
+    link: "https://www.leagueoflegends.com/vi-vn/news/game-updates/patch-25-12-notes/"
+  },
+  {
+    title: "Patch 25.11 (27/05/2025)",
+    img: "https://images.contentstack.io/v3/assets/blt731acb42bb3d1659/bltdc2e2e09900cc179/665412181c152e100ee1d98f/LOL_Patch_Notes_Header_25_11.jpg",
+    desc: "Điều chỉnh Garen, cân bằng nhẹ, ra mắt skin Hoa Hồng Đen.",
+    link: "https://www.leagueoflegends.com/vi-vn/news/game-updates/patch-25-11-notes/"
+  },
+  {
+    title: "Patch 25.10 (13/05/2025)",
+    img: "https://images.contentstack.io/v3/assets/blt731acb42bb3d1659/blt605ac4c616b6cdb5/663f4bd20c9634e68b538f6f/LOL_Patch_Notes_Header_25_10.jpg",
+    desc: "Trở lại Đấu Trường, cải tiến Battle Pass, skin Vex – Ryze.",
+    link: "https://www.leagueoflegends.com/vi-vn/news/game-updates/patch-25-10-notes/"
+  },
+  {
+    title: "Patch 25.9",
+    img: "https://images.contentstack.io/v3/assets/blt731acb42bb3d1659/blte7fdab3626f9c22a/662ae123ac9c98f37f2f4f15/LOL_Patch_Notes_Header_25_9.jpg",
+    desc: "Cập nhật cân bằng hàng tuần, trang phục mới.",
+    link: "https://www.leagueoflegends.com/vi-vn/news/game-updates/patch-25-9-notes/"
+  },
+  {
+    title: "Patch 25.8",
+    img: "https://images.contentstack.io/v3/assets/blt731acb42bb3d1659/blt6e56fbc75659b2f0/6615f6cbff9601cf4cd08a62/LOL_Patch_Notes_Header_25_8.jpg",
+    desc: "Tăng sức mạnh Pyke, giảm sức mạnh Milio, sửa lỗi hiển thị.",
+    link: "https://www.leagueoflegends.com/vi-vn/news/game-updates/patch-25-8-notes/"
+  },
+  {
+    title: "Patch 25.7",
+    img: "https://images.contentstack.io/v3/assets/blt731acb42bb3d1659/blt34162f2b302fd5a2/6607a003cf3cfd145f7331fd/LOL_Patch_Notes_Header_25_7.jpg",
+    desc: "Ra mắt skin Vệ Binh Ánh Sáng 2025, buff Galio.",
+    link: "https://www.leagueoflegends.com/vi-vn/news/game-updates/patch-25-7-notes/"
+  },
+  {
+    title: "Patch 25.6",
+    img: "https://images.contentstack.io/v3/assets/blt731acb42bb3d1659/blt7bd92e09c867ccff/65f5de68a7792081699d4ac3/LOL_Patch_Notes_Header_25_6.jpg",
+    desc: "Sửa lỗi lớn, cân bằng hạng đơn, chế độ thử nghiệm mới.",
+    link: "https://www.leagueoflegends.com/vi-vn/news/game-updates/patch-25-6-notes/"
+  },
+  {
+    title: "Patch 25.5",
+    img: "https://images.contentstack.io/v3/assets/blt731acb42bb3d1659/blt8bd1d809cdf8d45f/65e230d7eeb06e68e2c17353/LOL_Patch_Notes_Header_25_5.jpg",
+    desc: "Buff Yasuo, nerf Ahri, cập nhật trang bị chống chịu.",
+    link: "https://www.leagueoflegends.com/vi-vn/news/game-updates/patch-25-5-notes/"
+  },{
+        title: "Patch 25.09 - Cập Nhật Chiến Thuật",
+        img: "https://images.contentstack.io/v3/assets/blt731acb42bb3d1659/bltd7bfc65fc91db1cd/66285a66b44e0ecf12130fa4/LOL_Patch_Notes_Header_25_9.jpg",
+        desc: "Hướng dẫn chiến thuật giao tranh tổng và kiểm soát bản đồ.",
+        link: "https://www.leagueoflegends.com/vi-vn/news/game-updates/patch-25-9-notes/"
+      },{
+        title: "Patch 25.09 - Cập Nhật Chiến Thuật",
+        img: "https://images.contentstack.io/v3/assets/blt731acb42bb3d1659/bltd7bfc65fc91db1cd/66285a66b44e0ecf12130fa4/LOL_Patch_Notes_Header_25_9.jpg",
+        desc: "Hướng dẫn chiến thuật giao tranh tổng và kiểm soát bản đồ.",
+        link: "https://www.leagueoflegends.com/vi-vn/news/game-updates/patch-25-9-notes/"
+      },{
+        title: "Patch 25.09 - Cập Nhật Chiến Thuật",
+        img: "https://images.contentstack.io/v3/assets/blt731acb42bb3d1659/bltd7bfc65fc91db1cd/66285a66b44e0ecf12130fa4/LOL_Patch_Notes_Header_25_9.jpg",
+        desc: "Hướng dẫn chiến thuật giao tranh tổng và kiểm soát bản đồ.",
+        link: "https://www.leagueoflegends.com/vi-vn/news/game-updates/patch-25-9-notes/"
+      },{
+        title: "Patch 25.09 - Cập Nhật Chiến Thuật",
+        img: "https://images.contentstack.io/v3/assets/blt731acb42bb3d1659/bltd7bfc65fc91db1cd/66285a66b44e0ecf12130fa4/LOL_Patch_Notes_Header_25_9.jpg",
+        desc: "Hướng dẫn chiến thuật giao tranh tổng và kiểm soát bản đồ.",
+        link: "https://www.leagueoflegends.com/vi-vn/news/game-updates/patch-25-9-notes/"
+      },{
+        title: "Patch 25.09 - Cập Nhật Chiến Thuật",
+        img: "https://images.contentstack.io/v3/assets/blt731acb42bb3d1659/bltd7bfc65fc91db1cd/66285a66b44e0ecf12130fa4/LOL_Patch_Notes_Header_25_9.jpg",
+        desc: "Hướng dẫn chiến thuật giao tranh tổng và kiểm soát bản đồ.",
+        link: "https://www.leagueoflegends.com/vi-vn/news/game-updates/patch-25-9-notes/"
+      },{
+        title: "Patch 25.09 - Cập Nhật Chiến Thuật",
+        img: "https://images.contentstack.io/v3/assets/blt731acb42bb3d1659/bltd7bfc65fc91db1cd/66285a66b44e0ecf12130fa4/LOL_Patch_Notes_Header_25_9.jpg",
+        desc: "Hướng dẫn chiến thuật giao tranh tổng và kiểm soát bản đồ.",
+        link: "https://www.leagueoflegends.com/vi-vn/news/game-updates/patch-25-9-notes/"
+      },{
+        title: "Patch 25.09 - Cập Nhật Chiến Thuật",
+        img: "https://images.contentstack.io/v3/assets/blt731acb42bb3d1659/bltd7bfc65fc91db1cd/66285a66b44e0ecf12130fa4/LOL_Patch_Notes_Header_25_9.jpg",
+        desc: "Hướng dẫn chiến thuật giao tranh tổng và kiểm soát bản đồ.",
+        link: "https://www.leagueoflegends.com/vi-vn/news/game-updates/patch-25-9-notes/"
+      },{
+        title: "Patch 25.09 - Cập Nhật Chiến Thuật",
+        img: "https://images.contentstack.io/v3/assets/blt731acb42bb3d1659/bltd7bfc65fc91db1cd/66285a66b44e0ecf12130fa4/LOL_Patch_Notes_Header_25_9.jpg",
+        desc: "Hướng dẫn chiến thuật giao tranh tổng và kiểm soát bản đồ.",
+        link: "https://www.leagueoflegends.com/vi-vn/news/game-updates/patch-25-9-notes/"
+      },{
+        title: "Patch 25.09 - Cập Nhật Chiến Thuật",
+        img: "https://images.contentstack.io/v3/assets/blt731acb42bb3d1659/bltd7bfc65fc91db1cd/66285a66b44e0ecf12130fa4/LOL_Patch_Notes_Header_25_9.jpg",
+        desc: "Hướng dẫn chiến thuật giao tranh tổng và kiểm soát bản đồ.",
+        link: "https://www.leagueoflegends.com/vi-vn/news/game-updates/patch-25-9-notes/"
+      },{
+        title: "Patch 25.09 - Cập Nhật Chiến Thuật",
+        img: "https://images.contentstack.io/v3/assets/blt731acb42bb3d1659/bltd7bfc65fc91db1cd/66285a66b44e0ecf12130fa4/LOL_Patch_Notes_Header_25_9.jpg",
+        desc: "Hướng dẫn chiến thuật giao tranh tổng và kiểm soát bản đồ.",
+        link: "https://www.leagueoflegends.com/vi-vn/news/game-updates/patch-25-9-notes/"
+      },{
+        title: "Patch 25.09 - Cập Nhật Chiến Thuật",
+        img: "https://images.contentstack.io/v3/assets/blt731acb42bb3d1659/bltd7bfc65fc91db1cd/66285a66b44e0ecf12130fa4/LOL_Patch_Notes_Header_25_9.jpg",
+        desc: "Hướng dẫn chiến thuật giao tranh tổng và kiểm soát bản đồ.",
+        link: "https://www.leagueoflegends.com/vi-vn/news/game-updates/patch-25-9-notes/"
+      },{
+        title: "Patch 25.09 - Cập Nhật Chiến Thuật",
+        img: "https://images.contentstack.io/v3/assets/blt731acb42bb3d1659/bltd7bfc65fc91db1cd/66285a66b44e0ecf12130fa4/LOL_Patch_Notes_Header_25_9.jpg",
+        desc: "Hướng dẫn chiến thuật giao tranh tổng và kiểm soát bản đồ.",
+        link: "https://www.leagueoflegends.com/vi-vn/news/game-updates/patch-25-9-notes/"
+      },{
+        title: "Patch 25.09 - Cập Nhật Chiến Thuật",
+        img: "https://images.contentstack.io/v3/assets/blt731acb42bb3d1659/bltd7bfc65fc91db1cd/66285a66b44e0ecf12130fa4/LOL_Patch_Notes_Header_25_9.jpg",
+        desc: "Hướng dẫn chiến thuật giao tranh tổng và kiểm soát bản đồ.",
+        link: "https://www.leagueoflegends.com/vi-vn/news/game-updates/patch-25-9-notes/"
+      },{
+        title: "Patch 25.09 - Cập Nhật Chiến Thuật",
+        img: "https://images.contentstack.io/v3/assets/blt731acb42bb3d1659/bltd7bfc65fc91db1cd/66285a66b44e0ecf12130fa4/LOL_Patch_Notes_Header_25_9.jpg",
+        desc: "Hướng dẫn chiến thuật giao tranh tổng và kiểm soát bản đồ.",
+        link: "https://www.leagueoflegends.com/vi-vn/news/game-updates/patch-25-9-notes/"
+      },{
+        title: "Patch 25.09 - Cập Nhật Chiến Thuật",
+        img: "https://images.contentstack.io/v3/assets/blt731acb42bb3d1659/bltd7bfc65fc91db1cd/66285a66b44e0ecf12130fa4/LOL_Patch_Notes_Header_25_9.jpg",
+        desc: "Hướng dẫn chiến thuật giao tranh tổng và kiểm soát bản đồ.",
+        link: "https://www.leagueoflegends.com/vi-vn/news/game-updates/patch-25-9-notes/"
+      },{
+        title: "Patch 25.09 - Cập Nhật Chiến Thuật",
+        img: "https://images.contentstack.io/v3/assets/blt731acb42bb3d1659/bltd7bfc65fc91db1cd/66285a66b44e0ecf12130fa4/LOL_Patch_Notes_Header_25_9.jpg",
+        desc: "Hướng dẫn chiến thuật giao tranh tổng và kiểm soát bản đồ.",
+        link: "https://www.leagueoflegends.com/vi-vn/news/game-updates/patch-25-9-notes/"
+      },{
+        title: "Patch 25.09 - Cập Nhật Chiến Thuật",
+        img: "https://images.contentstack.io/v3/assets/blt731acb42bb3d1659/bltd7bfc65fc91db1cd/66285a66b44e0ecf12130fa4/LOL_Patch_Notes_Header_25_9.jpg",
+        desc: "Hướng dẫn chiến thuật giao tranh tổng và kiểm soát bản đồ.",
+        link: "https://www.leagueoflegends.com/vi-vn/news/game-updates/patch-25-9-notes/"
+      },{
+        title: "Patch 25.09 - Cập Nhật Chiến Thuật",
+        img: "https://images.contentstack.io/v3/assets/blt731acb42bb3d1659/bltd7bfc65fc91db1cd/66285a66b44e0ecf12130fa4/LOL_Patch_Notes_Header_25_9.jpg",
+        desc: "Hướng dẫn chiến thuật giao tranh tổng và kiểm soát bản đồ.",
+        link: "https://www.leagueoflegends.com/vi-vn/news/game-updates/patch-25-9-notes/"
+      },{
+        title: "Patch 25.09 - Cập Nhật Chiến Thuật",
+        img: "https://images.contentstack.io/v3/assets/blt731acb42bb3d1659/bltd7bfc65fc91db1cd/66285a66b44e0ecf12130fa4/LOL_Patch_Notes_Header_25_9.jpg",
+        desc: "Hướng dẫn chiến thuật giao tranh tổng và kiểm soát bản đồ.",
+        link: "https://www.leagueoflegends.com/vi-vn/news/game-updates/patch-25-9-notes/"
+      },{
+        title: "Patch 25.09 - Cập Nhật Chiến Thuật",
+        img: "https://images.contentstack.io/v3/assets/blt731acb42bb3d1659/bltd7bfc65fc91db1cd/66285a66b44e0ecf12130fa4/LOL_Patch_Notes_Header_25_9.jpg",
+        desc: "Hướng dẫn chiến thuật giao tranh tổng và kiểm soát bản đồ.",
+        link: "https://www.leagueoflegends.com/vi-vn/news/game-updates/patch-25-9-notes/"
+      },{
+        title: "Patch 25.09 - Cập Nhật Chiến Thuật",
+        img: "https://images.contentstack.io/v3/assets/blt731acb42bb3d1659/bltd7bfc65fc91db1cd/66285a66b44e0ecf12130fa4/LOL_Patch_Notes_Header_25_9.jpg",
+        desc: "Hướng dẫn chiến thuật giao tranh tổng và kiểm soát bản đồ.",
+        link: "https://www.leagueoflegends.com/vi-vn/news/game-updates/patch-25-9-notes/"
+      },{
+        title: "Patch 25.09 - Cập Nhật Chiến Thuật",
+        img: "https://images.contentstack.io/v3/assets/blt731acb42bb3d1659/bltd7bfc65fc91db1cd/66285a66b44e0ecf12130fa4/LOL_Patch_Notes_Header_25_9.jpg",
+        desc: "Hướng dẫn chiến thuật giao tranh tổng và kiểm soát bản đồ.",
+        link: "https://www.leagueoflegends.com/vi-vn/news/game-updates/patch-25-9-notes/"
+      },{
+        title: "Patch 25.09 - Cập Nhật Chiến Thuật",
+        img: "https://images.contentstack.io/v3/assets/blt731acb42bb3d1659/bltd7bfc65fc91db1cd/66285a66b44e0ecf12130fa4/LOL_Patch_Notes_Header_25_9.jpg",
+        desc: "Hướng dẫn chiến thuật giao tranh tổng và kiểm soát bản đồ.",
+        link: "https://www.leagueoflegends.com/vi-vn/news/game-updates/patch-25-9-notes/"
+      },{
+        title: "Patch 25.09 - Cập Nhật Chiến Thuật",
+        img: "https://images.contentstack.io/v3/assets/blt731acb42bb3d1659/bltd7bfc65fc91db1cd/66285a66b44e0ecf12130fa4/LOL_Patch_Notes_Header_25_9.jpg",
+        desc: "Hướng dẫn chiến thuật giao tranh tổng và kiểm soát bản đồ.",
+        link: "https://www.leagueoflegends.com/vi-vn/news/game-updates/patch-25-9-notes/"
+      },{
+        title: "Patch 25.09 - Cập Nhật Chiến Thuật",
+        img: "https://images.contentstack.io/v3/assets/blt731acb42bb3d1659/bltd7bfc65fc91db1cd/66285a66b44e0ecf12130fa4/LOL_Patch_Notes_Header_25_9.jpg",
+        desc: "Hướng dẫn chiến thuật giao tranh tổng và kiểm soát bản đồ.",
+        link: "https://www.leagueoflegends.com/vi-vn/news/game-updates/patch-25-9-notes/"
+      },{
+        title: "Patch 25.09 - Cập Nhật Chiến Thuật",
+        img: "https://images.contentstack.io/v3/assets/blt731acb42bb3d1659/bltd7bfc65fc91db1cd/66285a66b44e0ecf12130fa4/LOL_Patch_Notes_Header_25_9.jpg",
+        desc: "Hướng dẫn chiến thuật giao tranh tổng và kiểm soát bản đồ.",
+        link: "https://www.leagueoflegends.com/vi-vn/news/game-updates/patch-25-9-notes/"
+      },{
+        title: "Patch 25.09 - Cập Nhật Chiến Thuật",
+        img: "https://images.contentstack.io/v3/assets/blt731acb42bb3d1659/bltd7bfc65fc91db1cd/66285a66b44e0ecf12130fa4/LOL_Patch_Notes_Header_25_9.jpg",
+        desc: "Hướng dẫn chiến thuật giao tranh tổng và kiểm soát bản đồ.",
+        link: "https://www.leagueoflegends.com/vi-vn/news/game-updates/patch-25-9-notes/"
+      },{
+        title: "Patch 25.09 - Cập Nhật Chiến Thuật",
+        img: "https://images.contentstack.io/v3/assets/blt731acb42bb3d1659/bltd7bfc65fc91db1cd/66285a66b44e0ecf12130fa4/LOL_Patch_Notes_Header_25_9.jpg",
+        desc: "Hướng dẫn chiến thuật giao tranh tổng và kiểm soát bản đồ.",
+        link: "https://www.leagueoflegends.com/vi-vn/news/game-updates/patch-25-9-notes/"
+      },{
+        title: "Patch 25.09 - Cập Nhật Chiến Thuật",
+        img: "https://images.contentstack.io/v3/assets/blt731acb42bb3d1659/bltd7bfc65fc91db1cd/66285a66b44e0ecf12130fa4/LOL_Patch_Notes_Header_25_9.jpg",
+        desc: "Hướng dẫn chiến thuật giao tranh tổng và kiểm soát bản đồ.",
+        link: "https://www.leagueoflegends.com/vi-vn/news/game-updates/patch-25-9-notes/"
+      },{
+        title: "Patch 25.09 - Cập Nhật Chiến Thuật",
+        img: "https://images.contentstack.io/v3/assets/blt731acb42bb3d1659/bltd7bfc65fc91db1cd/66285a66b44e0ecf12130fa4/LOL_Patch_Notes_Header_25_9.jpg",
+        desc: "Hướng dẫn chiến thuật giao tranh tổng và kiểm soát bản đồ.",
+        link: "https://www.leagueoflegends.com/vi-vn/news/game-updates/patch-25-9-notes/"
+      },{
+        title: "Patch 25.09 - Cập Nhật Chiến Thuật",
+        img: "https://images.contentstack.io/v3/assets/blt731acb42bb3d1659/bltd7bfc65fc91db1cd/66285a66b44e0ecf12130fa4/LOL_Patch_Notes_Header_25_9.jpg",
+        desc: "Hướng dẫn chiến thuật giao tranh tổng và kiểm soát bản đồ.",
+        link: "https://www.leagueoflegends.com/vi-vn/news/game-updates/patch-25-9-notes/"
+      },{
+        title: "Patch 25.09 - Cập Nhật Chiến Thuật",
+        img: "https://images.contentstack.io/v3/assets/blt731acb42bb3d1659/bltd7bfc65fc91db1cd/66285a66b44e0ecf12130fa4/LOL_Patch_Notes_Header_25_9.jpg",
+        desc: "Hướng dẫn chiến thuật giao tranh tổng và kiểm soát bản đồ.",
+        link: "https://www.leagueoflegends.com/vi-vn/news/game-updates/patch-25-9-notes/"
+      },{
+        title: "Patch 25.09 - Cập Nhật Chiến Thuật",
+        img: "https://images.contentstack.io/v3/assets/blt731acb42bb3d1659/bltd7bfc65fc91db1cd/66285a66b44e0ecf12130fa4/LOL_Patch_Notes_Header_25_9.jpg",
+        desc: "Hướng dẫn chiến thuật giao tranh tổng và kiểm soát bản đồ.",
+        link: "https://www.leagueoflegends.com/vi-vn/news/game-updates/patch-25-9-notes/"
+      },{
+        title: "Patch 25.09 - Cập Nhật Chiến Thuật",
+        img: "https://images.contentstack.io/v3/assets/blt731acb42bb3d1659/bltd7bfc65fc91db1cd/66285a66b44e0ecf12130fa4/LOL_Patch_Notes_Header_25_9.jpg",
+        desc: "Hướng dẫn chiến thuật giao tranh tổng và kiểm soát bản đồ.",
+        link: "https://www.leagueoflegends.com/vi-vn/news/game-updates/patch-25-9-notes/"
+      },{
+        title: "Patch 25.09 - Cập Nhật Chiến Thuật",
+        img: "https://images.contentstack.io/v3/assets/blt731acb42bb3d1659/bltd7bfc65fc91db1cd/66285a66b44e0ecf12130fa4/LOL_Patch_Notes_Header_25_9.jpg",
+        desc: "Hướng dẫn chiến thuật giao tranh tổng và kiểm soát bản đồ.",
+        link: "https://www.leagueoflegends.com/vi-vn/news/game-updates/patch-25-9-notes/"
+      },{
+        title: "Patch 25.09 - Cập Nhật Chiến Thuật",
+        img: "https://images.contentstack.io/v3/assets/blt731acb42bb3d1659/bltd7bfc65fc91db1cd/66285a66b44e0ecf12130fa4/LOL_Patch_Notes_Header_25_9.jpg",
+        desc: "Hướng dẫn chiến thuật giao tranh tổng và kiểm soát bản đồ.",
+        link: "https://www.leagueoflegends.com/vi-vn/news/game-updates/patch-25-9-notes/"
+      },{
+        title: "Patch 25.09 - Cập Nhật Chiến Thuật",
+        img: "https://images.contentstack.io/v3/assets/blt731acb42bb3d1659/bltd7bfc65fc91db1cd/66285a66b44e0ecf12130fa4/LOL_Patch_Notes_Header_25_9.jpg",
+        desc: "Hướng dẫn chiến thuật giao tranh tổng và kiểm soát bản đồ.",
+        link: "https://www.leagueoflegends.com/vi-vn/news/game-updates/patch-25-9-notes/"
+      },{
+        title: "Patch 25.09 - Cập Nhật Chiến Thuật",
+        img: "https://images.contentstack.io/v3/assets/blt731acb42bb3d1659/bltd7bfc65fc91db1cd/66285a66b44e0ecf12130fa4/LOL_Patch_Notes_Header_25_9.jpg",
+        desc: "Hướng dẫn chiến thuật giao tranh tổng và kiểm soát bản đồ.",
+        link: "https://www.leagueoflegends.com/vi-vn/news/game-updates/patch-25-9-notes/"
+      },{
+        title: "Patch 25.09 - Cập Nhật Chiến Thuật",
+        img: "https://images.contentstack.io/v3/assets/blt731acb42bb3d1659/bltd7bfc65fc91db1cd/66285a66b44e0ecf12130fa4/LOL_Patch_Notes_Header_25_9.jpg",
+        desc: "Hướng dẫn chiến thuật giao tranh tổng và kiểm soát bản đồ.",
+        link: "https://www.leagueoflegends.com/vi-vn/news/game-updates/patch-25-9-notes/"
+      },{
+        title: "Patch 25.09 - Cập Nhật Chiến Thuật",
+        img: "https://images.contentstack.io/v3/assets/blt731acb42bb3d1659/bltd7bfc65fc91db1cd/66285a66b44e0ecf12130fa4/LOL_Patch_Notes_Header_25_9.jpg",
+        desc: "Hướng dẫn chiến thuật giao tranh tổng và kiểm soát bản đồ.",
+        link: "https://www.leagueoflegends.com/vi-vn/news/game-updates/patch-25-9-notes/"
+      },{
+        title: "Patch 25.09 - Cập Nhật Chiến Thuật",
+        img: "https://images.contentstack.io/v3/assets/blt731acb42bb3d1659/bltd7bfc65fc91db1cd/66285a66b44e0ecf12130fa4/LOL_Patch_Notes_Header_25_9.jpg",
+        desc: "Hướng dẫn chiến thuật giao tranh tổng và kiểm soát bản đồ.",
+        link: "https://www.leagueoflegends.com/vi-vn/news/game-updates/patch-25-9-notes/"
+      }
+    ];
+
+    let displayed = 0;
+    const perLoad = 3;
+
+    function loadMoreNews() {
+      const grid = document.getElementById("newsGrid");
+      for (let i = displayed; i < displayed + perLoad && i < newsList.length; i++) {
+        const news = newsList[i];
+        const div = document.createElement("div");
+        div.className = "news-card";
+        div.innerHTML = `
+          <img src="${news.img}" alt="${news.title}">
+          <div class="news-card-content">
+            <h3>${news.title}</h3>
+            <p class="desc">${news.desc}</p>
+            <a href="${news.link}" target="_blank">Đọc thêm...</a>
+          </div>
+        `;
+        grid.appendChild(div);
+      }
+      displayed += perLoad;
+    }
+
+    window.onload = () => {
+      loadMoreNews();
+      window.addEventListener("scroll", () => {
+        if (window.innerHeight + window.scrollY >= document.body.offsetHeight - 100) {
+          loadMoreNews();
+        }
+      });
+    }
+// Lấy nút di chuyển lên đầu trang
+        var scrollToTopBtn = document.getElementById("scrollToTopBtn");
+
+        // Đặt một biến để kiểm soát khi nào cần thay đổi trạng thái của nút
+        var isButtonVisible = false;
+
+        // Hàm xử lý cuộn trang
+        function handleScroll() {
+            var scrollPosition = document.documentElement.scrollTop || document.body.scrollTop;
+            var pageHeight = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+
+            // Kiểm tra nếu cuộn xuống dưới 2/3 trang thì nút sẽ luôn hiển thị
+            if (scrollPosition > pageHeight * 2 / 3) {
+                if (!isButtonVisible) {
+                    isButtonVisible = true;  // Đánh dấu nút đã hiện
+                    scrollToTopBtn.style.display = "flex";  // Hiển thị nút
+                    setTimeout(function () {
+                        scrollToTopBtn.style.opacity = 1;  // Hiệu ứng mờ dần
+                        scrollToTopBtn.style.transform = "translateY(0)";  // Hiệu ứng di chuyển lên
+                    }, 100);  // Delay để tạo hiệu ứng
+                }
+            } else if (scrollPosition <= pageHeight / 3) { // Khi cuộn lên trên 1/3 trang, ẩn nút
+                if (isButtonVisible) {
+                    isButtonVisible = false;  // Đánh dấu nút đã ẩn
+                    scrollToTopBtn.style.opacity = 0;   // Mờ dần khi cuộn lên
+                    scrollToTopBtn.style.transform = "translateY(50px)";  // Đưa nút xuống dưới
+                    setTimeout(function () {
+                        scrollToTopBtn.style.display = "none";  // Ẩn nút khi cuộn lên
+                    }, 400);  // Đợi cho đến khi hiệu ứng mờ hoàn tất
+                }
+            } else {
+                if (!isButtonVisible) {
+                    isButtonVisible = true;  // Đánh dấu nút đã hiện
+                    scrollToTopBtn.style.display = "flex";  // Hiển thị nút
+                    setTimeout(function () {
+                        scrollToTopBtn.style.opacity = 1;  // Hiệu ứng mờ dần
+                        scrollToTopBtn.style.transform = "translateY(0)";  // Hiệu ứng di chuyển lên
+                    }, 100);  // Delay để tạo hiệu ứng
+                }
+            }
+        }
+
+        // Gọi ngay khi tải trang để kiểm tra vị trí cuộn ban đầu
+        window.addEventListener("load", function () {
+            handleScroll();  // Kiểm tra ngay khi trang tải xong
+        });
+
+        // Sử dụng sự kiện scroll với debounce
+        let scrollTimeout;
+        window.addEventListener("scroll", function () {
+            // Nếu đang cuộn, đặt timeout để trì hoãn việc xử lý
+            clearTimeout(scrollTimeout);
+            scrollTimeout = setTimeout(handleScroll, 50); // Đặt thời gian trì hoãn 50ms
+        });
+
+        // Khi người dùng nhấp vào nút, cuộn trang lên đầu
+        scrollToTopBtn.onclick = function (e) {
+            e.preventDefault();  // Ngăn chặn hành động mặc định của thẻ <a>
+            window.scrollTo({
+                top: 0,
+                behavior: "smooth"  // Hiệu ứng cuộn mượt
+            });
+        };
+
+
+
+        // Animation on scroll
+        document.addEventListener('scroll', () => {
+            const elements = document.querySelectorAll('.fade-up');
+            elements.forEach(element => {
+                if (element.getBoundingClientRect().top < window.innerHeight) {
+                    element.classList.add('visible');
+                }
+            });
+        });
+        let lastScrollTop = 0; // Biến lưu vị trí cuộn trang trước đó
+        const nav = document.querySelector('nav'); // Lấy phần tử thanh điều hướng
+
+        // Lắng nghe sự kiện scroll (cuộn trang)
+        window.addEventListener('scroll', () => {
+            let currentScroll = window.pageYOffset || document.documentElement.scrollTop;
+
+            // Kiểm tra nếu cuộn xuống
+            if (currentScroll > lastScrollTop) {
+                nav.style.top = "-60px"; // Ẩn thanh điều hướng (60px là chiều cao của navbar, có thể thay đổi theo ý)
+            } else {
+                nav.style.top = "0"; // Hiện thanh điều hướng
+            }
+
+            // Cập nhật vị trí cuộn trang mới
+            lastScrollTop = currentScroll <= 0 ? 0 : currentScroll; // Đảm bảo không bị âm
+        });
+        // Scroll and highlight active link
+        const links = document.querySelectorAll('nav a');
+        const sections = document.querySelectorAll('.section');
+        const officialLink = document.getElementById('official-link');
+
+        window.addEventListener('scroll', () => {
+            let currentSection = "";
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                if (window.scrollY >= sectionTop - 100) {
+                    currentSection = section.getAttribute('id');
+                }
+            });
+
+            links.forEach(link => {
+                link.classList.remove('active');
+                if (currentSection === link.getAttribute('href').slice(1)) {
+                    link.classList.add('active');
+                }
+            });
+        });
+
+        // Keep "Trang Chính Thức" always glowing
+        officialLink.addEventListener('mouseover', () => {
+            officialLink.style.color = "#f0e130";
+            officialLink.style.textShadow = "0 0 15px #f0e130";
+        });
+
+        officialLink.addEventListener('mouseleave', () => {
+            officialLink.style.color = "#fff";
+            officialLink.style.textShadow = "none";
+        });
+  </script>
+</html>

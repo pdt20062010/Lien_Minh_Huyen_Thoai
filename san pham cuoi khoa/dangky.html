@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <title>Đăng ký nhận tin LMHT</title>
+  <link rel="stylesheet" href="css/dangky.css">
+</head>
+<body>
+  
+  <a href="index.html" class="back-btn">⬅ Trang Chủ</a>
+
+  <div class="content">
+    <div class="form-box">
+      <h2 style="font-size: 30px;">🔥 Đăng ký nhận tin hot về LMHT!</h2>
+      <p style="font-size: 18px;">Nhập email để không bỏ lỡ bất kỳ thông tin nào từ Summoner's Rift 🛡️</p>
+
+      <form onsubmit="return dangKy()">
+  <h2>Đăng ký tài khoản</h2>
+  
+        <input type="text" id="username" placeholder="Nhập Tên" required><br>
+        <input type="email" id="email" placeholder="Nhập email" required><br>
+        <input type="password" id="password" placeholder="Nhập mật khẩu" required><br>
+        <input type="password" id="passwordConfirm" placeholder="Nhập lại mật khẩu" required><br>
+
+  
+        <button type="submit" id="BtnRegister">Đăng ký</button>
+  <p style="margin-top: 15px; font-size: 16px;">Đã có tài khoản? 
+    <a href="dangnhap.html" style="color: #f0e130; text-decoration: none; font-weight: bold;"> Đăng nhập.</a></p>
+</form>
+
+    </div>
+
+    <div class="info-box">
+      <h3>📢 Bạn sẽ nhận được gì khi đăng ký?</h3>
+      <ul style="list-style: none; padding: 0; text-align: left;">
+        <li>✅ Tin tức cập nhật về các bản vá và sự kiện mới</li>
+        <li>✅ Mẹo chơi game từ các game thủ chuyên nghiệp</li>
+        <li>✅ Hướng dẫn leo rank, build đồ cực chuẩn</li>
+        <li>✅ Thông báo giải đấu và phần thưởng hấp dẫn</li>
+      </ul>
+      <p style="margin-top: 20px;">Đừng bỏ lỡ cơ hội trở thành <strong>Summoner đỉnh cao</strong> cùng chúng tôi nhé! 💪</p>
+    </div>
+  </div>
+  <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
+  <script src="./js/firebase.js"></script>
+  <script src="./js/dangky.js"></script>
+
+  
+</body>
+</html>
